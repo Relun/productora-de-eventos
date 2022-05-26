@@ -1,0 +1,47 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :q_crew, style: "display: block" %>
+    <%= form.number_field :q_crew %>
+  </div>
+
+  <div>
+    <%= form.label :debut_date, style: "display: block" %>
+    <%= form.date_field :debut_date %>
+  </div>
+
+  <div>
+    <%= form.label :group_type, style: "display: block" %>
+    <%= form.select :group_type, options_for_select(@group_types) %>
+  </div>
+
+ <!-- <div>
+    <%= form.fields_for :crews do |ff| %>
+      <% render "crew_fields", :f => ff %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to_add_association "añadir nuevo integrante", form, :crews %>
+  </div>
+-->
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

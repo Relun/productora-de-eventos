@@ -1,0 +1,56 @@
+<div id="<%= dom_id group %>">
+  <p>
+    <strong>Name:</strong>
+    <%= group.name %>
+  </p>
+
+  <p>
+    <strong>Crew:</strong>
+    <%= group.q_crew %>
+  </p>
+
+  <p>
+    <strong>Debut date:</strong>
+    <%= group.debut_date %>
+  </p>
+
+  <p>
+    <strong>Group type:</strong>
+    <%= group.group_type %>
+  </p>
+
+  <th>Concerts:</th>
+  Cantidad: <%= group.q_concert %>
+    <td>
+      <ul>
+      <% group.concerts.each do |concert| %>
+        <li><%= concert.place %>, <%= concert.attendance%> </li>
+      <% end %>
+      </ul>
+  </td>
+
+Tabla:
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Conciertos de este mes</th>
+      <th scope="col">Último concierto</th>
+      <th scope="col">Mayor cantidad de público</th>
+      <th scope="col">Mayor duración</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td> <%= group.concert_this_month %> </td>
+      <td> <%= group.last_concert %> </td>
+      <td> <%= group.max_attendance %> </td>
+      <td> <%= group.max_duration %> </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
